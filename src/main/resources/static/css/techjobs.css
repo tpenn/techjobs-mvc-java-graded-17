@@ -30,6 +30,7 @@ table.job-listing {
 }
 
 table.job-listing td:first-child {
+    font-variant: small-caps;
     font-weight: bold;
 }
 
