@@ -26,19 +26,6 @@ public class TechJobsController {
         put("coreCompetency", JobData.getAllCoreCompetency());
     }};
 
-    public TechJobsController () {
-//        actionChoices.put("search", "Search");
-//        actionChoices.put("list", "List");
-//        columnChoices.put("all", "All");
-//        columnChoices.put("employer", "Employer");
-//        columnChoices.put("location", "Location");
-//        columnChoices.put("positionType", "Position Type");
-//        columnChoices.put("coreCompetency", "Skill");
-//        tableChoices.put("employer", JobData.getAllEmployers());
-//        tableChoices.put("location", JobData.getAllLocations());
-//        tableChoices.put("positionType", JobData.getAllPositionTypes());
-//        tableChoices.put("coreCompetency", JobData.getAllCoreCompetency());
-    }
 
     @ModelAttribute("actions")
     public static HashMap<String, String> getActionChoices() {
