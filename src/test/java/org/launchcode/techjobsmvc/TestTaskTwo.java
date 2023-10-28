@@ -53,16 +53,26 @@ public class TestTaskTwo {
     public void testJobListingDisplaysAllJobFields () throws Exception {
         mockMvc.perform(get("/list/jobs?column=coreCompetency&value=Ruby"))
                 .andExpect(status().isOk())
-                .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), '3')]").exists())
-                .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), 'Junior Web Developer')]").exists())
+                .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), '3')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td[contains(text(), '3')]").exists())
+                .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), 'Junior Web Developer')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td[contains(text(), 'Junior Web Developer')]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), 'Cozy')] | " +
-                        "//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Cozy')]").exists())
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td[contains(text(), 'Cozy')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Cozy')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td/a[contains(text(), 'Cozy')]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), 'Portland')] | " +
-                        "//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Portland')]").exists())
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td[contains(text(), 'Portland')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Portland')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td/a[contains(text(), 'Portland')]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), 'Web - Front End')] | " +
-                        "//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Web - Front End')]").exists())
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td[contains(text(), 'Web - Front End')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Web - Front End')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td/a[contains(text(), 'Web - Front End')]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), 'Ruby')] | " +
-                        "//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Ruby')]").exists());
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td[contains(text(), 'Ruby')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Ruby')] | " +
+                        "//table[contains(@class, 'job-listing')][1]/tbody/tr/td/a[contains(text(), 'Ruby')]").exists());
     }
 
     /*
